@@ -51,6 +51,8 @@ Subscribes:
     Type: "ENV:NET_TCP:db:redis:connection-info-v1"
     Required: false
 Publishes:
+  get-doc-root:
+    Type: "FILESYSTEM:doc-root"
   publish-db-connection-info:
     Type: "ENV:NET_TCP:db:connection-info"
   publish-redis-connection-info:
