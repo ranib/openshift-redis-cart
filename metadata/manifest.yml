@@ -9,6 +9,28 @@ Categories:
   - service
   - database
   - embedded
+Cart-Data:
+- Key: OPENSHIFT_REDIS_HOST
+  Type: environment
+  Description: Redis host address
+- Key: OPENSHIFT_REDIS_PORT
+  Type: environment
+  Description: Redis port
+- Key: REDIS_PASSWORD
+  Type: environment
+  Description: Redis default password generated
+- Key: OPENSHIFT_REDIS_DIR
+  Type: environment
+  Description: Directory to store Redis application files 
+- Key: OPENSHIFT_REDIS_SENTINEL_HOST
+  Type: environment
+  Description: Redis Sentinel host address
+  Key: OPENSHIFT_REDIS_SENTINEL_PORT
+  Type: environment
+  Description: Redis Sentinel port
+  Key: REDIS_CLI
+  Type: environment
+  Description: REDIS_CLI environment variable 
 Provides:
   - redis-3.2
   - redis

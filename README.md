@@ -5,7 +5,7 @@ Redis - 3.2.9
 
 Runs [Redis](http://redis.io) on [OpenShift](https://openshift.redhat.com/app/login) using downloadable cartridge support.  To install to OpenShift from the CLI (you'll need version 1.9 or later of rhc), create your app and then run:
 
-    rhc add-cartridge http://cartreflect-claytondev.rhcloud.com/reflect?github=gerardogc2378/openshift-redis-cart
+    rhc add-cartridge http://cartreflect-claytondev.rhcloud.com/reflect?github=ranib/openshift-redis-cart
 
 Any log output will be generated to $OPENSHIFT_REDIS_DIR/logs/redis.log
 
@@ -78,3 +78,24 @@ If you install this cartridge from source, you will be using a precompiled versi
 We hope to add a more natural update process at a later point.
 
 [more about this cartridge see here](https://github.com/smarterclayton/openshift-redis-cart "more about this cartridge")
+
+## If you want to use Redis for Object cache in Wordpress
+### 1. add redis to <yourapp>
+```BASH
+$ rhc cartridge add -a <yourapp> http://cartreflect-claytondev.rhcloud.com/reflect?github=ranib/openshift-redis-cart
+```
+### 2. edit wp-config.php for Wordpress to connect to Redis
+```BASH
+/** Enable Redis Cache Settings */
+
+define('WP_CACHE_KEY_SALT', getenv('OPENSHIFT_APP_DNS'));
+define('WP_REDIS_CLIENT', 'WP-CLI');
+define('WP_REDIS_HOST', getenv('OPENSHIFT_REDIS_HOST'));
+define('WP_REDIS_PORT', getenv('OPENSHIFT_REDIS_PORT'));
+define('WP_REDIS_PASSWORD', getenv('REDIS_PASSWORD'));
+define('WP_REDIS_MAXTTL', '86400');
+define('WP_CACHE', true);
+```
+### 3. install `Redis Object Cache` plugin
+Acticate plugin and go to its settings
+click on `Enable Object-Cache`
