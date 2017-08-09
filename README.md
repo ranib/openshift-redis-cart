@@ -96,6 +96,11 @@ define('WP_REDIS_PASSWORD', getenv('REDIS_PASSWORD'));
 define('WP_REDIS_MAXTTL', '86400');
 define('WP_CACHE', true);
 ```
-### 3. install `Redis Object Cache` plugin
-Acticate plugin and go to its settings
-click on `Enable Object-Cache`
+### 3. How to use plugin
+* install `Redis Object Cache` plugin
+* Acticate plugin and go to its settings
+* click on `Enable Object-Cache` you must see Status as `Connected`
+* if not go to `Redis Object Cache` plugin homepage for instructions
+* click `Diagnostics` and see connection parameters
+* make sure `object-cache.php` file created by this plugin is seen in `Drop-In` under `Installed Plugins`
+* if not manually copy `object-cache.php` file from `/plugins/redis-cache/includes/` directory to `/wp-content/` directory
