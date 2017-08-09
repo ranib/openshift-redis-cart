@@ -100,6 +100,7 @@ define('WP_CACHE', true);
 * install `Redis Object Cache` plugin
 * Acticate plugin and go to its settings
 * click on `Enable Object-Cache` you must see Status as `Connected`
+#### Troubleshoot
 * if not go to `Redis Object Cache` plugin homepage for instructions
 * click `Diagnostics` and see connection parameters
 * make sure `object-cache.php` file created by this plugin is seen in `Drop-In` under `Installed Plugins`
